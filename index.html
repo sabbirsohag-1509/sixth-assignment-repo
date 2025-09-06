@@ -3,9 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Green Earth</title>
+    <link rel="shortcut icon" href="./assets/hero-leaf1.png" type="image/x-icon">
+                <!-- daisyUI + Tailwind link  -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
 </head>
 <body>
-    
+                        <!-- Navbar-Section  -->
+    <header>  
+        <nav class="bg-green-600 min-h-16 flex justify-around items-center gap-40"> 
+            <div> 
+                <h1 class="font-bold text-white text-2xl cursor-pointer ">Green Earth</h1>
+            </div>
+            <div > 
+                <ul class="flex justify-center items-center gap-5 text-white text-[16px] font font-semibold"> 
+                    <a href="#"><li>About</li></a>
+                    <a href="#"><li>Gallery</li></a>
+                    <a href="#"><li>Plant a Tree</li></a>
+                </ul>
+            </div>
+            <div> 
+                <button class="btn btn-warning text-gray-700 text-lg rounded-full">Plant a Tree</button>
+            </div>
+        </nav>
+    </header>
+
+                        <!-- Banner-Section  -->
+    <section> 
+        <div class="bg-[#CFF0DC] flex justify-between gap-50"> 
+            <div> 
+                <img src="./assets/hero-leaf1.png" alt="">
+            </div>
+            <div class="flex flex-col justify-center items-center text-center "> 
+                <h1 class="font-bold text-2xl whitespace-nowrap">Plant a Tree, Grow a Future</h1>
+                <p class="text-sm pt-2">Join our mission to plant 1 million trees and make the Earth greener for future<br>
+                generations.</p>
+                 <button class="btn btn-warning text-green-700 text-sm rounded-full mt-3">Get Involved</button>
+            </div>
+            <div> 
+                <img src="./assets/hero-leaf2.png" alt="">
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
 </body>
 </html>
