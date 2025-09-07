@@ -34,10 +34,31 @@ const showCategory = (categories) => {
        if(e.target.localName === 'li'){
         // console.log(e.target.id)
         e.target.classList.add('bg-green-600')
-        loadTreesByCategory(e.target.id)
+        // loadTreesByCategory(e.target.id)
+
+        if(e.target.id === 'all-trees'){
+            loadAllTrees();
+        }
+        else{
+            loadTreesByCategory(e.target.id)
+        }
        };
     });
 };
+
+const loadAllTrees = () =>{
+    cardContainer.innerHTML = "";
+    fetch(`https://openapi.programming-hero.com/api/plants`)
+    .then(res => res.json())
+    .then(data => {
+        // console.log(data.plants)
+        showTreesByCategory(data.plants)
+    })
+.catch(err =>{
+    console.log(err)
+})
+
+}
 
 const loadTreesByCategory = (categoryId) => {
     console.log(categoryId)
@@ -73,3 +94,4 @@ const showTreesByCategory = (plants) => {
     })
 }
 loadCategory();
+loadAllTrees();
