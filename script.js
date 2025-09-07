@@ -1,7 +1,9 @@
+// console.log('JS file Connected')
+
 const categoriesContainer = document.getElementById('categories-container');
 const cardContainer = document.getElementById('card-container');
 const allTreesContainer = document.getElementById('all-trees');
-
+const spinner = document.getElementById('loading-spinner');
 
 const loadCategory = () => {
     fetch(`https://openapi.programming-hero.com/api/categories`)
@@ -50,29 +52,37 @@ const showCategory = (categories) => {
 };
 
 const loadAllTrees = () =>{
+     showSpinner();
     cardContainer.innerHTML = "";
     fetch(`https://openapi.programming-hero.com/api/plants`)
     .then(res => res.json())
     .then(data => {
         // console.log(data.plants)
         showTreesByCategory(data.plants)
+
+        hideSpinner();
     })
 .catch(err =>{
     console.log(err)
+    hideSpinner();
 })
 
 }
 
 const loadTreesByCategory = (categoryId) => {
+    showSpinner();
     console.log(categoryId)
     fetch(`https://openapi.programming-hero.com/api/category/${categoryId}`)
     .then((res) => res.json())
     .then(data => {
         // console.log(data.plants)
         showTreesByCategory(data.plants)
+
+        hideSpinner();
     })
     .catch((err) =>{
         console.log(err)
+        hideSpinner();
     })
 }
 
@@ -83,7 +93,7 @@ const showTreesByCategory = (plants) => {
         // console.log(plant)
         cardContainer.innerHTML += `  
               <div class=" shadow-2xl p-3 rounded-xl bg-white"> 
-        <img class="w-48 h-48 rounded-lg" src="${plant.image}" alt="">
+        <img class="w-48 h-48 object-cover rounded-lg" src="${plant.image}" alt="">
         <h2 class="text-xl font-semibold mt-2">${plant.name}</h2>
         <p class="text-sm text-gray-600">${plant.description}</p>
         <div class="flex justify-between mt-3"> 
@@ -96,5 +106,18 @@ const showTreesByCategory = (plants) => {
         `
     })
 }
+
+const showSpinner = () => {
+    spinner.classList.remove('hidden');
+    cardContainer.classList.add('hidden');
+};
+
+const hideSpinner = () => {
+    spinner.classList.add('hidden');
+    cardContainer.classList.remove('hidden');
+}
+
+
+
 loadCategory();
 loadAllTrees();
