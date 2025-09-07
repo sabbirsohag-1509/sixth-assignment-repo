@@ -59,7 +59,7 @@ const showTreesByCategory = (plants) => {
         // console.log(plant)
         cardContainer.innerHTML += `  
               <div class=" shadow-2xl p-3 rounded-xl bg-white"> 
-        <img class="w-48 h-48" class="rounded-lg" src="${plant.image}" alt="">
+        <img class="w-48 h-48 rounded-lg" src="${plant.image}" alt="">
         <h2 class="text-xl font-semibold mt-2">${plant.name}</h2>
         <p class="text-sm text-gray-600">${plant.description}</p>
         <div class="flex justify-between mt-3"> 
