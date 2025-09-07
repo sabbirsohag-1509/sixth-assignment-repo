@@ -92,12 +92,12 @@ const showTreesByCategory = (plants) => {
     plants.forEach(plant => {
         // console.log(plant)
         cardContainer.innerHTML += `  
-              <div class=" shadow-2xl p-3 rounded-xl bg-white"> 
+        <div class=" shadow-2xl p-3 rounded-xl bg-white"> 
         <img class="w-48 h-48 object-cover rounded-lg" src="${plant.image}" alt="">
         <h2 class="text-xl font-semibold mt-2">${plant.name}</h2>
         <p class="text-sm text-gray-600">${plant.description}</p>
         <div class="flex justify-between mt-3"> 
-          <p class="bg-green-200 px-3 py-1 text-green-800 rounded-full">${plant.category}</p>
+          <p class="bg-green-200 px-3 py-1 text-green-800 rounded-full shadow-xl">${plant.category}</p>
           <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</p>
         </div>
         <button class="btn bg-green-600 w-full rounded-full mt-8 text-white">Add To Cart</button>
