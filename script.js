@@ -9,6 +9,9 @@ const loadCategory = () => {
     .then(data => { 
         const categories = data.categories
         showCategory(categories)
+        //
+        allTreesContainer.classList.add('bg-green-600')
+
     })
     .catch((err) =>{
         console.log(err)
