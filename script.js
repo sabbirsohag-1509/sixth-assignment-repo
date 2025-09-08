@@ -122,7 +122,7 @@ const showTreesByCategory = (plants) => {
         <div onclick='openModalBox(${JSON.stringify(plant)})' class=" cursor-pointer shadow-2xl p-3 rounded-xl bg-white transform transition-transform hover:scale-102 duration-200 cursor-pointer"> 
         <img class="w-48 h-48 object-cover rounded-lg" src="${plant.image}" alt="">
         <h2 class="text-xl font-semibold mt-2">${plant.name}</h2>
-        <p class="text-sm text-gray-600">${plant.description}</p>
+        <p class="text-sm text-gray-600 line-clamp-3">${plant.description}</p>
         <div class="flex justify-between mt-3"> 
           <p class="bg-green-200 px-3 py-1 text-green-800 rounded-full shadow-xl">${plant.category}</p>
           <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</p>
@@ -134,10 +134,6 @@ const showTreesByCategory = (plants) => {
         
     })
 }
-
-
-
-
 
 
 const addToCart = (event, plant) => {
@@ -158,15 +154,15 @@ const updateCartUI = () => {
         total += item.price;
 
         const itemDiv = document.createElement('div');
-        itemDiv.className = "flex justify-between items-center bg-[#F0FDF4] p-3 rounded-lg";
+        itemDiv.className = "flex gap-5 justify-between items-center bg-[#F0FDF4] p-3 rounded-lg mt-5";
 
         itemDiv.innerHTML =  `  
             <div> 
-                <h2>${item.name}</h2>
-                <p><span>${item.price}</span></p>
+                <h2 class="text-lg font-semibold">${item.name}</h2>
+                <p class="text-base pt-3"><span><span class="text-2xl font-bold">৳</span> ${item.price}</span> Taka</p>
             </div>
             <div>
-                <span class="cursor-pointer text-red-500 font-bold remove-item" data-index="${index}">❌</span>
+                <span class="  cursor-pointer text-red-500 font-bold remove-item" data-index="${index}">❌</span>
             </div>
         
         `;
