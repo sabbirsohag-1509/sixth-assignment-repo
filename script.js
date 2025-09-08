@@ -4,6 +4,31 @@ const categoriesContainer = document.getElementById('categories-container');
 const cardContainer = document.getElementById('card-container');
 const allTreesContainer = document.getElementById('all-trees');
 const spinner = document.getElementById('loading-spinner');
+const modal = document.getElementById('my_modal_5');
+const modalBoxContainer = modal.querySelector('.modal-box')
+// const stringify = `${JSON.stringify(plant)}`
+
+
+
+let cart = [];
+
+const openModalBox = (plant) => {
+    modalBoxContainer.innerHTML = `  
+         <img class="w-full object-cover h-48 rounded-lg mb-2" src="${plant.image}" alt="">
+        <h2 class="text-xl font-bold">${plant.name}</h2>
+        <p class="text-sm text-gray-600 mt-2">${plant.description}</p>
+        <p class="bg-green-200 px-2 py-1 text-green-800 rounded-full mt-2 inline-block">${plant.category}</p>
+        <p class="mt-1"><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</p>
+    
+        <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+    `;
+    modal.showModal();
+}
 
 const loadCategory = () => {
     fetch(`https://openapi.programming-hero.com/api/categories`)
@@ -92,7 +117,7 @@ const showTreesByCategory = (plants) => {
     plants.forEach(plant => {
         // console.log(plant)
         cardContainer.innerHTML += `  
-        <div class=" shadow-2xl p-3 rounded-xl bg-white"> 
+        <div onclick='openModalBox(${JSON.stringify(plant)})' class=" cursor-pointer shadow-2xl p-3 rounded-xl bg-white transform transition-transform hover:scale-105 duration-300 cursor-pointer"> 
         <img class="w-48 h-48 object-cover rounded-lg" src="${plant.image}" alt="">
         <h2 class="text-xl font-semibold mt-2">${plant.name}</h2>
         <p class="text-sm text-gray-600">${plant.description}</p>
@@ -100,11 +125,22 @@ const showTreesByCategory = (plants) => {
           <p class="bg-green-200 px-3 py-1 text-green-800 rounded-full shadow-xl">${plant.category}</p>
           <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</p>
         </div>
-        <button class="btn bg-green-600 w-full rounded-full mt-8 text-white">Add To Cart</button>
+        <button onclick="addToCart(event,'${plant.name}')" class="btn bg-green-600 w-full rounded-full mt-8 text-white">Add To Cart</button>
       </div>
         
         `
+        
     })
+}
+
+
+
+
+
+
+const addToCart = (event, name) => {
+    event.stopPropagation();
+    alert(`Added to Cart: ${name}` );
 }
 
 const showSpinner = () => {
