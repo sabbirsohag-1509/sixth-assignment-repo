@@ -6,7 +6,9 @@ const allTreesContainer = document.getElementById('all-trees');
 const spinner = document.getElementById('loading-spinner');
 const modal = document.getElementById('my_modal_5');
 const modalBoxContainer = modal.querySelector('.modal-box')
-// const stringify = `${JSON.stringify(plant)}`
+const cartItemsContainer = document.getElementById('cart-items')
+const cartTotalElement = document.getElementById('cart-total')
+
 
 
 
@@ -117,7 +119,7 @@ const showTreesByCategory = (plants) => {
     plants.forEach(plant => {
         // console.log(plant)
         cardContainer.innerHTML += `  
-        <div onclick='openModalBox(${JSON.stringify(plant)})' class=" cursor-pointer shadow-2xl p-3 rounded-xl bg-white transform transition-transform hover:scale-105 duration-300 cursor-pointer"> 
+        <div onclick='openModalBox(${JSON.stringify(plant)})' class=" cursor-pointer shadow-2xl p-3 rounded-xl bg-white transform transition-transform hover:scale-102 duration-200 cursor-pointer"> 
         <img class="w-48 h-48 object-cover rounded-lg" src="${plant.image}" alt="">
         <h2 class="text-xl font-semibold mt-2">${plant.name}</h2>
         <p class="text-sm text-gray-600">${plant.description}</p>
@@ -125,7 +127,7 @@ const showTreesByCategory = (plants) => {
           <p class="bg-green-200 px-3 py-1 text-green-800 rounded-full shadow-xl">${plant.category}</p>
           <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</p>
         </div>
-        <button onclick="addToCart(event,'${plant.name}')" class="btn bg-green-600 w-full rounded-full mt-8 text-white">Add To Cart</button>
+        <button onclick='addToCart(event, ${JSON.stringify(plant)})' class="btn bg-green-600 w-full rounded-full mt-8 text-white">Add To Cart</button>
       </div>
         
         `
@@ -138,10 +140,53 @@ const showTreesByCategory = (plants) => {
 
 
 
-const addToCart = (event, name) => {
+const addToCart = (event, plant) => {
     event.stopPropagation();
-    alert(`Added to Cart: ${name}` );
+    alert(`Added to Cart: ${plant.name}` );
+
+    cart.push(plant);
+
+    updateCartUI();
 }
+
+const updateCartUI = () => {
+    cartItemsContainer.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price;
+
+        const itemDiv = document.createElement('div');
+        itemDiv.className = "flex justify-between items-center bg-[#F0FDF4] p-3 rounded-lg";
+
+        itemDiv.innerHTML =  `  
+            <div> 
+                <h2>${item.name}</h2>
+                <p><span>${item.price}</span></p>
+            </div>
+            <div>
+                <span class="cursor-pointer text-red-500 font-bold remove-item" data-index="${index}">❌</span>
+            </div>
+        
+        `;
+        cartItemsContainer.appendChild(itemDiv)
+    })
+    cartTotalElement.innerText = total;
+
+    ////remove item event-
+    document.querySelectorAll('.remove-item').forEach(btn => {
+        btn.addEventListener('click', removeCartItem)
+    });
+};
+    //Remvoe cart items-
+const removeCartItem = (event) => {
+    const index = event.target.dataset.index;
+    cart.splice(index, 1);
+    updateCartUI();
+}
+
+
 
 const showSpinner = () => {
     spinner.classList.remove('hidden');
