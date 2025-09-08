@@ -124,7 +124,7 @@ const showTreesByCategory = (plants) => {
         <h2 class="text-xl font-semibold mt-2">${plant.name}</h2>
         <p class="text-sm text-gray-600 line-clamp-3">${plant.description}</p>
         <div class="flex justify-between mt-3"> 
-          <p class="bg-green-200 px-3 py-1 text-green-800 rounded-full shadow-xl">${plant.category}</p>
+          <p class="bg-green-200 px-3 py-1 text-green-800 rounded-full shadow-xl text-sm font-medium">${plant.category}</p>
           <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</p>
         </div>
         <button onclick='addToCart(event, ${JSON.stringify(plant)})' class="btn bg-green-600 w-full rounded-full mt-8 text-white">Add To Cart</button>

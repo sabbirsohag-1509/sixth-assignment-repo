@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth</title>
-    <link rel="shortcut icon" href="./assets/hero-leaf1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
                 <!-- daisyUI + Tailwind link  -->
 <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -16,37 +16,38 @@
 <body>
                         <!-- Navbar-Section  -->
     <header>  
-        <nav class="bg-green-600 min-h-16 flex justify-around items-center gap-40"> 
-            <div> 
-                <h1 class="font-bold text-white text-2xl cursor-pointer ">Green Earth</h1>
+        <nav class="bg-green-600 flex flex-wrap justify-between items-center px-4 md:px-16 py-4"> 
+            <div class="flex items-center gap-3"> 
+                <img class="w-10 invert" src="./assets/logo.png" alt="">
+                <h1 class="font-bold text-white text-xl md:text-2xl cursor-pointer ">Green Earth</h1>
             </div>
             <div > 
-                <ul class="flex justify-center items-center gap-5 text-white text-[16px] font font-semibold"> 
+                <ul class="hidden md:flex gap-6 text-white justify-center items-center  text-[16px] font-semibold"> 
                     <a href="#"><li>About</li></a>
                     <a href="#"><li>Gallery</li></a>
                     <a href="#"><li>Plant a Tree</li></a>
                 </ul>
             </div>
             <div> 
-                <button class="btn btn-warning text-gray-700 text-lg rounded-full">Plant a Tree</button>
+                <button class="btn btn-warning text-gray-700 text-sm md:text-lg rounded-full mt-2 md:mt-0">Plant a Tree</button>
             </div>
         </nav>
     </header>
 
                         <!-- Banner-Section  -->
     <section> 
-        <div class="bg-[#CFF0DC] flex justify-between gap-50"> 
+        <div class="bg-[#CFF0DC] min-h-[250px] flex flex-col justify-center md:justify-between md:flex-row "> 
             <div> 
-                <img src="./assets/hero-leaf1.png" alt="">
+                <img class=" w-28 md:w-[100%] ml-0 md:mt-20" src="./assets/hero-leaf1.png" alt="">
             </div>
-            <div class="flex flex-col justify-center items-center text-center "> 
-                <h1 class="font-bold text-2xl whitespace-nowrap">Plant a Tree, Grow a Future</h1>
-                <p class="text-sm pt-2">Join our mission to plant 1 million trees and make the Earth greener for future<br>
+            <div class=" w-full md:w-[75%] flex flex-col justify-center items-center text-center pt-5 md:pt-0 "> 
+                <h1 class="font-bold text-3xl whitespace-nowrap">Plant a Tree, Grow a Future</h1>
+                <p class="text-sm py-3">Join our mission to plant 1 million trees and make the Earth greener <br> for future
                 generations.</p>
                  <button class="btn btn-warning text-green-700 text-sm rounded-full mt-3">Get Involved</button>
             </div>
             <div> 
-                <img src="./assets/hero-leaf2.png" alt="">
+                <img class="w-28 md:w-[100%] ml-68 md:ml-0 md:mt-20 " src="./assets/hero-leaf2.png" alt="">
             </div>
         </div>
     </section>
@@ -57,32 +58,36 @@
             <h1 class="font-bold text-2xl text-center pt-14">Choose Your Trees</h1>
          </div>
 
-    <div class="w-11/12 mx-auto grid grid-cols-12 gap-6 mt-8">
+                        <!-- Category Aside - Cards - Cart Aside  -->
+
+    <div class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 mt-8 items-start">
             
                      <!-- Categories Aside -->
-        <aside class="col-span-2 p-4 rounded-lg ">
+        <aside class="md:col-span-2 p-4 bg-white rounded-lg shadow ">
           <h3 class="text-xl font-bold mb-3">Categories</h3>
         <ul id="categories-container" class="space-y-2">
 
             <li id="all-trees" class="py-2 hover:bg-green-700 hover:text-white rounded pl-2 cursor-pointer  bg-green-600">All Trees</li>
            
-            
         </ul>
         </aside>
 
                 <!-- Cards-Container -->
-    <div id="card-container" class=" col-span-7 grid grid-cols-3 gap-5 ">
-    </div>
+    <div id="card-container" class=" md:col-span-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 min-h-[400px]">
 
+        <!-- ----------- -->
+
+    </div>
                 <!-- Loading-Spinner  -->
-    <div id="loading-spinner" class="col-span-7 flex justify-center items-center hidden "> 
-        <span class="loading loading-spinner text-success w-16 text-green-700"></span>
-    </div>
 
+    <div id="loading-spinner" class="col-span-7 flex justify-center items-center hidden "> 
+    <span class="loading loading-spinner text-success w-16 text-green-700"></span>
+    </div>
+   
     
                 <!-- Cart Aside -->
 
-    <aside class="col-span-3 bg-white p-4 rounded-lg shadow">
+    <aside class="md:col-span-3 bg-white p-4 rounded-lg shadow self-start">
       <h3 class="text-xl font-bold mb-4">Your Cart</h3>
         
        <div id="cart-items" >
@@ -107,7 +112,7 @@
   </div>
 </section> 
 
-                            <!-- Campaign-Banner-Section  -->
+                            <!--About Campaign-Banner-Section  -->
 
 
     <section class="bg-[#F0FDF4]">  
@@ -115,13 +120,13 @@
             <h1 class="font-bold text-2xl text-center pt-14">About The Campaign</h1>
          </div>
 
-         <div class="flex justify-center items-center w-8/12 mx-auto gap-14 pt-14">
+         <div class="flex flex-col md:flex-row justify-center items-center w-8/12 mx-auto gap-10 py-14">
 
             <div> 
-                <img class="w-[680px]" src="./assets/about.png" alt="">
+                <img class="w-full md:w-[950px] lg:w-[700px]" src="./assets/about.png" alt="">
             </div>
 
-            <div> 
+            <div class=""> 
             <p class=" text-base text-gray-700 text-justify pt-5">  Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
             <ul style="list-style-type: disc;" class="py-7 text-base text-gray-700"> 
                     <li>Restoration of natural habitats</li>
@@ -134,18 +139,21 @@
     </section>
 
                             <!-- Our Impact-Section  -->
-    <section class="bg-[#CFF0DC] h-72"> 
+    <section class="bg-[#CFF0DC] pb-10"> 
         <h1 class="font-bold text-2xl text-center pt-14">Our Impact</h1>
 
-        <div class="flex gap-6 justify-center pt-8"> 
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center px-6 pt-10"> 
+            <!-- 1 -->
             <div class="w-80 h-28 bg-white shadow-xl rounded-xl flex flex-col justify-center items-center transform transition-transform hover:scale-110 duration-300 cursor-pointer hover:bg-green-200 hover:border-2 hover:border-white"> 
                 <h1 class="text-4xl font-bold text-green-600 pt-5">500K+</h1>
                 <p class="text-lg font-medium text-gray-700 py-2">Trees Planted</p>
             </div>
+            <!-- 2 -->
             <div class="w-80 h-28 bg-white shadow-xl rounded-xl flex flex-col justify-center items-center transform transition-transform hover:scale-110 duration-300 cursor-pointer hover:bg-green-200 hover:border-2 hover:border-white"> 
                 <h1 class="text-4xl font-bold text-green-600 pt-5">120+</h1>
                 <p class="text-lg font-medium text-gray-700 py-2">Communities Involved</p>
             </div>
+            <!-- 3 -->
             <div class="w-80 h-28 bg-white shadow-xl rounded-xl flex flex-col justify-center items-center transform transition-transform hover:scale-110 duration-300 cursor-pointer hover:bg-green-200 hover:border-2 hover:border-white"> 
                 <h1 class="text-4xl font-bold text-green-600 pt-5">30+</h1>
                 <p class="text-lg font-medium text-gray-700 py-2">Countries Reached</p>
@@ -154,17 +162,17 @@
     </section>
 
                             <!-- Footer-Form-Section  -->
-    <section class="bg-green-800 h-[450px]">  
+    <section class="bg-green-800 ">  
         <div> 
             <h1 class="font-bold text-2xl text-center pt-14 text-white">Plant a Tree Today</h1>
         </div>
 
         <div class="flex justify-center items-center mt-6" > 
-            <div class="bg-green-700 w-[550px] p-5 rounded-xl space-y-2 flex flex-col justify-center items-center shadow-xl"> 
-                <input class="bg-white w-96 h-10 p-2 rounded" type="text" placeholder="Your Name"> <br>
-                <input class="bg-white w-96 h-10 p-2 rounded" type="text" placeholder="Your e-mail address"><br>
+            <div class="bg-green-700 w-full max-w-lg p-5 rounded-xl space-y-3 mx-4 shadow-xl"> 
+                <input class="bg-white w-full md:w-96 h-10 p-2 rounded" type="text" placeholder="Your Name"> <br>
+                <input class="bg-white w-full md:w-96 h-10 p-2 rounded" type="text" placeholder="Your e-mail address"><br>
 
-                <select class="select select-md w-96">
+                <select class="select select-md w-full md:w-96">
                 <option disabled selected>Number of Trees</option>
                 <option>Number of Trees</option>
                 <option>10</option>
@@ -173,7 +181,7 @@
                 <option>25</option>
                 <option>30</option>
                 </select>
-                <button class="btn btn-warning mt-4 rounded-full w-96">Donate Now</button>
+                <button class="btn btn-warning mt-4 rounded-full w-full md:w-96">Donate Now</button>
             </div>
         </div>
 
