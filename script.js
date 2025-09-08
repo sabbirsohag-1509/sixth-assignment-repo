@@ -122,7 +122,7 @@ const showTreesByCategory = (plants) => {
         <div onclick='openModalBox(${JSON.stringify(plant)})' class=" cursor-pointer shadow-2xl p-3 rounded-xl bg-white transform transition-transform hover:scale-102 duration-200 cursor-pointer"> 
         <img class="w-48 h-48 object-cover rounded-lg" src="${plant.image}" alt="">
         <h2 class="text-xl font-semibold mt-2">${plant.name}</h2>
-        <p class="text-sm text-gray-600 line-clamp-3">${plant.description}</p>
+        <p class="text-sm text-gray-600 line-clamp-2">${plant.description}</p>
         <div class="flex justify-between mt-3"> 
           <p class="bg-green-200 px-3 py-1 text-green-800 rounded-full shadow-xl text-sm font-medium">${plant.category}</p>
           <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</p>
